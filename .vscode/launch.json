@@ -4,9 +4,19 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Debug TypeScript",
+      "name": "Debug TypeScript with ts-node",
+      "runtimeExecutable": "ts-node",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}/src/index.ts",
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug Compiled JavaScript",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/dist/index.js",
       "preLaunchTask": "tsc: build - tsconfig.json",
       "outFiles": ["${workspaceFolder}/dist/**/*.js"],
       "args": [],
