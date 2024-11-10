@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "app with debugging",
   "main": "index.js",
+  "type": "module",
   "author": "LeftTwixWand",
   "license": "MIT",
   "devDependencies": {
@@ -14,6 +15,9 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
-    "dev": "ts-node-dev --respawn --transpile-only src/index.ts"
+    "dev": "node --loader ts-node/esm --experimental-specifier-resolution=node src/index.ts"
+  },
+  "dependencies": {
+    "octokit": "^4.0.2"
   }
 }

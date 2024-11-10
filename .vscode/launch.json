@@ -5,22 +5,18 @@
       "type": "node",
       "request": "launch",
       "name": "Debug TypeScript with ts-node",
-      "runtimeExecutable": "ts-node",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "--loader",
+        "ts-node/esm",
+        "--experimental-specifier-resolution=node"
+      ],
+      "args": [
+        "${workspaceFolder}/src/index.ts"
+      ],
       "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}/src/index.ts",
-      "args": [],
-      "cwd": "${workspaceFolder}"
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "Debug Compiled JavaScript",
-      "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}/dist/index.js",
-      "preLaunchTask": "tsc: build - tsconfig.json",
-      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
-      "args": [],
-      "cwd": "${workspaceFolder}"
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal"
     }
   ]
 }
